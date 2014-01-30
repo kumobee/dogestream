@@ -1,0 +1,10 @@
+{
+    "name": "Dogestream",
+    "description": "API documentation for the Dogestream project.",
+    "version": "v0.0.0",
+    "options": {
+        "linkNatives": "true",
+        "exclude": ".DS_Store,.svn,.git,CVS,build_rollup_tmp,build_tmp,vendor",
+        "outdir": "./docs"
+    }
+}
