@@ -41,3 +41,26 @@ Other goals, not necessarily for this hackday, include:
   - VideoJS
   - VexJS
   - _Raptorize_
+
+
+## Environment
+You do this:
+
+```
+make install
+```
+
+and pretend like you're a hacker.
+
+## Tests
+
+You do this:
+
+```
+make tests
+```
+
+and continue to pretend like you're a hacker.
+
+## License
+MIT and stuff, yo.
