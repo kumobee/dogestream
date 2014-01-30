@@ -1,0 +1,14 @@
+$textColor      : #FFF;
+$bodyBackground : #ecf0f1;
+
+$ubuntuFont     : "ubuntu-mono";
+$metaFont       : "ff-meta-web-pro";
+
+body,window{
+  margin:0px;
+  padding:0px;
+}
+
+body{
+  background-color:$bodyBackground;
+}
