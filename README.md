@@ -1,4 +1,4 @@
-![alt text](http://i.imgur.com/6AWcQQC.png "such venice doge") dogestream
+![alt text](http://i.imgur.com/6AWcQQC.png "such venice doge") dogestream [![Build Status](https://travis-ci.org/WowSuchDogestream/dogestream.png?branch=master)](https://travis-ci.org/WowSuchDogestream/dogestream)
 ===========
 
 That's no doge! [Actually yes it is!](http://en.wikipedia.org/wiki/Doge_of_Venice).
