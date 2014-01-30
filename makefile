@@ -25,3 +25,6 @@ preview-docs:
 
 app:
 	@$(NODEMON)
+
+css:
+	@$(SASS) --update sass:css
