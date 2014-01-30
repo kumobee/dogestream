@@ -1,0 +1,45 @@
+nav{
+  background-color:#2980b9;
+  padding-right:200px;
+  text-align: center;
+  display:block;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  width:100%;
+  height:40px;
+  #title{
+    float:left;
+    color:$textColor;
+    font-family: $ubuntuFont, arial, sans-serif;
+    font-size:24px;
+    line-height:40px;
+    padding-left:20px;
+
+  }
+  .menuItem{
+    @include span-columns(1);
+    cursor:pointer;
+    color:$textColor;
+    font-size:24px;
+    font-family:$metaFont, arial, sans-serif;
+    font-weight:700;
+    line-height:45px;
+
+    margin:0px 5px 0px 5px;
+    float:right;
+    height:inherit;
+    &:last-child{
+      margin-right:5px;
+    }
+    &:hover{
+      background-color: #34495e;
+      -webkit-transition: background-color 500ms linear;
+      -moz-transition: background-color 500ms linear;
+      -o-transition: background-color 500ms linear;
+      -ms-transition: background-color 500ms linear;
+      transition: background-color 500ms linear;
+    }
+
+  }
+}
