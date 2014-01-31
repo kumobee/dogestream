@@ -8,7 +8,7 @@ That's no doge! [Actually yes it is!](http://en.wikipedia.org/wiki/Doge_of_Venic
 The primary goal of dogestream is to stream local video content to web browsers using NodeJS and HTML5 Video (look ma, no flash!).
 
 Other goals, not necessarily for this hackday, include:
-  - Storing editable meta-data about video content
+  - ~~Storing editable meta-data about video content~~
   - Indexing local media for easy search
   - _Raptorizing all the things_
   - Playlists
@@ -62,5 +62,7 @@ make tests
 
 and continue to pretend like you're a hacker.
 
+If it breaks, then please don't commit. Because, well, you make Travis feel bad.
+
 ## License
-MIT and stuff, yo.
+Check the license file in the root of the project.
