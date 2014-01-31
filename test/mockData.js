@@ -14,7 +14,7 @@ var video = {
 };
 
 var notDogeVideo = {
-    title: 'Something That Isn\'t Doge Therefore Less Important',
+    title: 'Something-That-Isnt-Doge-Therefore-Less-Important',
     description: 'You won\'t learn how to doge here...',
     path: 'some/stupid/path',
     duration: '00:00:00',
