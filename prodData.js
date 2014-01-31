@@ -48,7 +48,16 @@ var firstLook = {
     category: 'cnetReview'
 };
 
-var dogeVideos = [beiberFever, bioShock, att4chan, watchdogs, firstLook];
+var tombRaider = {
+    title: 'Tomb-Raider-Preview',
+    description: 'The new Tomb Raider game is revealed in this trailer, complete with beautiful pre-rendered visuals. Watch as the new Lara Croft begins her fight for survival.',
+    path: 'content/videoGameTrailers/tomb_raider.m4v',
+    duration: '00:02:50',
+    type: 'video/x-m4v',
+    category: 'videoGameReviews'
+}
+
+var dogeVideos = [beiberFever, bioShock, att4chan, watchdogs, firstLook, tombRaider];
 
 mongoose.connection.collections['videos'].drop(function(err, docs) {
     mongoose.connection.collections['videos'].insert(dogeVideos, function(err, docs) {});
