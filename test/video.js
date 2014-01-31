@@ -83,8 +83,7 @@ describe('GET /video and friends ::  ', function() {
                     var result = JSON.parse(res.text);
 
                     assert.ok(result);
-                    assert.equal(result.length, 1);
-                    assert.equal(result[0].title, video.title);
+                    assert.equal(result.title, video.title);
 
                     done();
                 });
@@ -106,12 +105,33 @@ describe('PUT /video :: ', function() {
         it('should insert the the video meta-data into the database and copy the video to the filesystem', function(done) {
 
             request(app)
-                .put('/video/title/Teach-Me-How-To-Doge')
+                .get('/video/title/New-Doge-Hotness')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    var result = JSON.parse(res.text);
+
+                    assert.equal(JSON.stringify(result), '{}');
+                });
+
+            request(app)
+                .put('/video/title/New-Doge-Hotness')
                 .send(putVideo)
                 .expect('Content-Type', /json/)
                 .expect(201)
-                .end(function(err, res) {
+                .end(function(err, res){
+                    assert.equal(err, null);
+                });
 
+            request(app)
+                .get('/video/title/New-Doge-Hotness')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    var result = JSON.parse(res.text);
+
+                    assert.ok(result);
+                    assert.equal(result.title, putVideo.title);
 
                     done();
                 });
