@@ -10,10 +10,16 @@
     <link rel="stylesheet" href="css/main.css?v=1.0">
     <link rel="stylesheet" href="css/libs/vex-theme-flat-attack.css" />
     <link rel="stylesheet" href="css/libs/pace.css" />
+
+    <link href="//vjs.zencdn.net/4.2/video-js.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/4.2/video.js"></script>
+
     <script data-main="js/require.init.js" src="js/libs/require.js"></script>
 
     <script type="text/javascript" src="http://use.typekit.net/com3nni.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+
 </head>
     <script type="text/html" id="videolistTemplate">
         <div class='sidebarVid'>
@@ -30,12 +36,13 @@
 
     <script type="text/html" id="videoSingleTemplate">
         <h3 data-bind="text: title"></h3>
-        <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="none" width="715" height="264"
-               data-setup="{}" poster="http://www.valuesbasedleader.com/wp-content/themes/VBL/images/videoPlaceholder.jpg">
-            <source data-bind="attr:{ src : path }" type='video/m4v' />
+        <video data-bind="attr:{ id : 'vid'+title }" class="video-js vjs-default-skin" controls preload="none" width="715" height="264"
+               poster="http://www.valuesbasedleader.com/wp-content/themes/VBL/images/videoPlaceholder.jpg">
+            <source data-bind="attr:{ src : location.protocol+ '//' + location.host + '/' + path }" type='video/m4v' />
             <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
             <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
         </video>
+        <span  data-bind="text: path"></span>
         <span data-bind="text: category"></span>
         <span data-bind="text: duration"></span>
         <span data-bind="text: description"></span>

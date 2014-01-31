@@ -17,7 +17,6 @@ require.config({
         knockout    : 'js/libs/knockout-3.0.0',
         pace        : 'js/libs/pace.min',
         davis       : 'js/libs/davis.min',
-        videojs     : 'js/libs/video_js/video',
         zepto       : 'js/libs/zepto.min',
         viewModel   : 'js/viewmodel.req',
         apiInterface: 'js/api.req',
@@ -38,9 +37,9 @@ requirejs([
     pace.start({
         document: false
     });
-    //our knockout view model
-    apiInterface.getAllVideos();
+
     $(document).on('ready',function(){
+        viewModel.setView();
         //loads up Zepto instead of jQuery for the selector lib
         window.Davis.$ = window.Zepto;
         //setup our routing shit
@@ -55,7 +54,6 @@ requirejs([
             });
             this.get('/video/:title',function(req){
                 var title = req.params['title'];
-                console.log( title );
                 apiInterface.getVideo( title );
             });
             this.get('/play/:title',function(req){
@@ -66,6 +64,11 @@ requirejs([
             });
         });
         Application.start();
+        //our knockout view model
+        setTimeout(function(){
+            apiInterface.getAllVideos();
+        },1000);
+
     });
 
 });

@@ -17,6 +17,9 @@ define([
             $.getJSON( '/video/title/'+title, function(data){
                 viewUpdate.updateViewField('videoDetail', data );
                 viewUpdate.updateViewField('videoShow', true );
+                videojs("vid"+title, {}, function(){
+
+                });
             });
        },
        deleteVideo      : function(title){
