@@ -93,7 +93,7 @@ describe('GET /video and friends ::  ', function() {
         });
     });
 
-    describe('when requesting resource /video/title', function() {
+    describe('when requesting resource /video/title/:title', function() {
         it('should return a single video that matches title', function(done) {
             request(app)
                 .get('/video/title/Teach-Me-How-To-Doge')
@@ -196,6 +196,57 @@ describe('PATCH /video :: ', function() {
                     }
 
                     return done();
+                });
+        });
+    });
+});
+
+describe('GET /play :: ', function() {
+    var id, video, notDogeVideo, dogeVideos;
+
+    video = {
+        title: 'Teach-Me-How-To-Doge',
+        description: 'Teach me how to doge, teach me teach me how to doge...',
+        path: 'some/path/to/file',
+        duration: '00:03:01',
+        type: 'video/x-m4v',
+        category: 'doge'
+
+    };
+
+    notDogeVideo = {
+        title: 'Something-That-Isnt-Doge-Therefore-Less-Important',
+        description: 'You won\'t learn how to doge here...',
+        path: 'some/stupid/path',
+        duration: '00:00:00',
+        type: 'video/x-m4v',
+        category: 'notDoge'
+    };
+
+    dogeVideos = [video, notDogeVideo];
+
+    beforeEach(function(done) {
+        mongoose.connection.collections['videos'].drop(function(err, docs) {
+            mongoose.connection.collections['videos'].insert(dogeVideos, function(err, docs) {
+                id = docs[0]._id;
+                done();
+            });
+        });
+    });
+
+    describe('when getting a video using the /play route', function() {
+        it('should return video meta-data', function(done) {
+            request(app)
+                .get('/play/title/Teach-Me-How-To-Doge')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    var result = JSON.parse(res.text);
+
+                    assert.ok(result);
+                    assert.equal(result.title, video.title);
+
+                    done();
                 });
         });
     });
