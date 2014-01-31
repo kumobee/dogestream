@@ -1,0 +1,405 @@
+{
+    "project": {
+        "name": "Dogestream",
+        "description": "API documentation for the Dogestream project.",
+        "version": "v0.0.0"
+    },
+    "files": {
+        "lib/routes/video.js": {
+            "name": "lib/routes/video.js",
+            "modules": {
+                "routes": 1
+            },
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/util/index.js": {
+            "name": "lib/util/index.js",
+            "modules": {},
+            "classes": {
+                "Util": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "lib/video/index.js": {
+            "name": "lib/video/index.js",
+            "modules": {},
+            "classes": {
+                "Video": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "routes": {
+            "name": "routes",
+            "submodules": {},
+            "classes": {
+                "Util": 1,
+                "Video": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "lib/video/index.js",
+            "line": 6,
+            "description": "Routing actions for this application."
+        }
+    },
+    "classes": {
+        "Util": {
+            "name": "Util",
+            "shortname": "Util",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "routes",
+            "namespace": "",
+            "file": "lib/util/index.js",
+            "line": 1,
+            "is_constructor": 1
+        },
+        "Video": {
+            "name": "Video",
+            "shortname": "Video",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "routes",
+            "namespace": "",
+            "file": "lib/video/index.js",
+            "line": 6,
+            "description": "Responsible for querying the VideoModel for information.",
+            "is_constructor": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "lib/routes/video.js",
+            "line": 7,
+            "itemtype": "property",
+            "name": "VideoService The model that provides database access to video information.",
+            "type": "{Video}",
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 12,
+            "itemtype": "property",
+            "name": "Video An actual instance of the model.",
+            "type": "{Video}",
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 18,
+            "description": "Retrieves an array of all video content meta-data.",
+            "itemtype": "method",
+            "name": "all",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 40,
+            "description": "Retrieves a list of all current categories.",
+            "itemtype": "method",
+            "name": "allCategories",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 68,
+            "description": "Retrieves all video content that satisifes `content`.",
+            "itemtype": "method",
+            "name": "category",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 90,
+            "description": "GET Request to retrieve a single video's meta information.",
+            "itemtype": "method",
+            "name": "getTitle",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 112,
+            "description": "PUT Request to create a single video's meta-data.",
+            "itemtype": "method",
+            "name": "putTitle",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 130,
+            "description": "PATCH Request to upload a single video's binary content.",
+            "itemtype": "method",
+            "name": "patchTitle",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "500 if there was an error, 200 otherwise.",
+                "type": "Object"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/routes/video.js",
+            "line": 148,
+            "description": "POST Request to stream binary video content to the client.",
+            "itemtype": "method",
+            "name": "postTitle",
+            "params": [
+                {
+                    "name": "req",
+                    "description": "The request."
+                },
+                {
+                    "name": "res",
+                    "description": "The response."
+                }
+            ],
+            "return": {
+                "description": "200 on successful stream of all content, 500 otherwise."
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/util/index.js",
+            "line": 7,
+            "itemtype": "method",
+            "name": "toCamelCase",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/util/index.js",
+            "line": 18,
+            "description": "Given a string, return the string in TitleCase form.",
+            "itemtype": "method",
+            "name": "toTitleCase",
+            "params": [
+                {
+                    "name": "string",
+                    "description": "",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "String"
+            },
+            "class": "Util",
+            "module": "routes"
+        },
+        {
+            "file": "lib/video/index.js",
+            "line": 14,
+            "description": "Returns all video objects from Mongo.",
+            "itemtype": "method",
+            "name": "all",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Video",
+            "module": "routes"
+        },
+        {
+            "file": "lib/video/index.js",
+            "line": 40,
+            "description": "Returns all video objects matching category from Mongo.",
+            "itemtype": "method",
+            "name": "category",
+            "params": [
+                {
+                    "name": "cat",
+                    "description": "The category to filter results from.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Video",
+            "module": "routes"
+        },
+        {
+            "file": "lib/video/index.js",
+            "line": 60,
+            "description": "Returns a single video object that matches the given title.",
+            "params": [
+                {
+                    "name": "title",
+                    "description": "The title to search for.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Video",
+            "module": "routes"
+        },
+        {
+            "file": "lib/video/index.js",
+            "line": 77,
+            "description": "Attempts to save a video to the database.",
+            "params": [
+                {
+                    "name": "videoObj",
+                    "description": "",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Video",
+            "module": "routes"
+        },
+        {
+            "file": "lib/video/index.js",
+            "line": 97,
+            "description": "Retrieves the file blob from the client and stores it in the content directory.",
+            "params": [
+                {
+                    "name": "file",
+                    "description": "The uploaded file.",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": ""
+                }
+            ],
+            "class": "Video",
+            "module": "routes"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nReturns a single video object that matches the given title.",
+            "line": " lib/video/index.js:60"
+        },
+        {
+            "message": "Missing item type\nAttempts to save a video to the database.",
+            "line": " lib/video/index.js:77"
+        },
+        {
+            "message": "Missing item type\nRetrieves the file blob from the client and stores it in the content directory.",
+            "line": " lib/video/index.js:97"
+        }
+    ]
+}
