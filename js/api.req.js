@@ -20,6 +20,7 @@ define([
                 data.seed = seed;
                 viewUpdate.updateViewField('videoDetail', data );
                 viewUpdate.updateViewField('videoShow', true );
+                viewUpdate.updateViewField('categoryShow',false);
                 videojs("vid"+title+seed, {}, function(){
 
                 });
@@ -37,15 +38,21 @@ define([
        putVideo         : function(){
 
        },
-       getCategory      : function(category){
-            $.getJSON( '/api/video/category/'+category, function(){
-
+       getCategories      : function(){
+            $.getJSON( '/api/video/category/', function(data){
+                $("#list").empty();
+                viewUpdate.updateViewField('categoryShow',false);
+                viewUpdate.updateViewField('videoShow',false);
+                viewUpdate.updateViewField('categoryList', data);
             });
        },
-       getCategoryList  : function(){
-            $.getJSON('/api/video/category', function(){
-
-            })
+       getCategory  : function(category){
+            $.getJSON('/api/video/category/'+category, function(data){
+                viewUpdate.updateViewField( 'categoryDetail', data );
+                viewUpdate.updateViewField('categoryShow',true);
+                viewUpdate.updateViewField('videoShow',false);
+                viewUpdate.updateViewField( 'currentCategory' );
+            });
        },
        getVideoMeta     : function(title){
             $.getJSON( '/api/play/title/'+title, function(){

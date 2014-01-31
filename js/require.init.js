@@ -45,12 +45,12 @@ requirejs([
         //setup our routing shit
         var Application = Davis(function(){
             //get actions
-            this.get('/home',function(context){
-
+            this.get('/categories',function(context){
+                apiInterface.getCategories();
             });
             this.get('/video/category/:category',function(req){
                 var category = req.params['category'];
-
+                apiInterface.getCategory( category );
             });
             this.get('/video/:title',function(req){
                 var title = req.params['title'];
@@ -67,6 +67,7 @@ requirejs([
         //our knockout view model
         setTimeout(function(){
             apiInterface.getAllVideos();
+            apiInterface.getCategories();
         },1000);
 
     });

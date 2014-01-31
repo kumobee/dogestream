@@ -6,8 +6,10 @@ define(['knockout'], function(ko) {
             viewModel = {
                 videoList       : ko.observableArray([]),
                 categoryList    : ko.observableArray([]),
+                categoryDetail  : ko.observableArray([]),
+                categoryShow    : ko.observable(false),
+                currentCategory : ko.observable(""),
                 videoShow       : ko.observable(false),
-
                 videoDetail     : ko.observable({
                     path : "",
                     title : "",

@@ -47,20 +47,45 @@
         <span class="desc" data-bind="text: description"></span>
     </script>
 
+    <script type="text/html" id="primaryCategoryListTemplate" >
+        <a data-bind="text:$data, attr:{href:'/video/category/'+$data}" class="categoryItem"></a>
+    </script>
+
+    <script type="text/html" id="primaryCategoryDetailTemplate" >
+        <div class='categoryDetailVid'>
+            <a data-bind="attr:{href:'/video/'+title }" >
+                <img src="http://www.valuesbasedleader.com/wp-content/themes/VBL/images/videoPlaceholder.jpg" width="300"/>
+                <h3 data-bind="text: title"> </h3>
+                <span class="duration" data-bind="text: duration"></span>
+                <span class="category" data-bind="text: category"></span>
+                <span class="desc" data-bind="text: description"></span>
+            </a>
+        </div>
+    </script>
+
     <body>
-        <nav class="">
+        <nav>
             <div id="title" class="ttk-ubuntu-mono">
                 Doge Stream, Much #Wow.
             </div>
             <div class="menuItem k-ff-meta-web-pro">About</div>
+            <div class="menuItem k-ff-meta-web-pro"><a href="/categories">Category List</a></div>
         </nav>
 
         <div id="content">
             <div id="sidebar" data-bind="template:{ name : 'videolistTemplate', foreach:videoList, as: 'video' } ">
 
             </div>
-            <div id="primaryArea" data-bind="visible: videoShow, template:{name: 'videoSingleTemplate', data: videoDetail }">
-
+            <div id="primaryArea" >
+                <div id="videoPlayer" data-bind="visible: videoShow, template:{name: 'videoSingleTemplate', data: videoDetail }"></div>
+                <div id="categoryList" data-bind="visible: !videoShow() && !categoryShow()" >
+                    <h3> Category Tags </h3>
+                    <div id="list" data-bind="template:{name:'primaryCategoryListTemplate', foreach:categoryList }" ></div>
+                </div>
+                <div id="categoryDetail" data-bind="visible: categoryShow ">
+                    <h3 data-bind="text:currentCategory"> </h3>
+                    <div data-bind="template: {name: 'primaryCategoryDetailTemplate',foreach:categoryDetail }"> </div>
+                </div>
             </div>
 
         </div>
