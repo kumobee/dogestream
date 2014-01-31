@@ -33,6 +33,7 @@
         margin:0px 0px 0px 5px;
         padding:5px;
         font-family: $ubuntuFont, arial, sans-serif;
+
       }
       .duration{
         position:absolute;
@@ -42,6 +43,7 @@
       }
       .desc{
         font-size:13px;
+        font-family: $metaFont, arial, sans-serif;
       }
       .category{
         font-size: 10px;
@@ -49,7 +51,7 @@
         left:10px;
         top:8px;
         &:before{
-          content:"Category ";
+          content:"";
           font-size:10px;
 
         }
@@ -65,6 +67,34 @@
     box-shadow: 6px 10px 10px 10px #DCDFE0;
     video{
       background:black;
+    }
+    h3{
+      margin-left:10px;
+      font-size:32px;
+      padding:5px;
+      margin:0px;
+      font-family: $metaFont, arial, sans-serif;
+    }
+    .desc{
+      color:black;
+      font-size: 16px;
+      font-family: $metaFont, arial, sans-serif;
+      display:block;
+      width:100%;
+      height:auto;
+      padding-left: 10px;
+    }
+    .duration{
+      display:none;
+    }
+    .category{
+      padding-left: 10px;
+      color:#34495e;
+      font-size: 13px;
+      font-family: $metaFont, arial, sans-serif;
+      &:before{
+        content : "Category: "
+      }
     }
   }
 }

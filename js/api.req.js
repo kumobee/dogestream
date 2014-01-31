@@ -8,16 +8,19 @@ define([
 ],function($,viewUpdate){
    return {
        getAllVideos     : function(){
-           $.getJSON( '/video', function(data){
+           $.getJSON( '/api/video', function(data){
                 viewUpdate.updateViewField('videoList', data );
            });
        },
        getVideo         : function(title){
            console.log("video title "+title);
-            $.getJSON( '/video/title/'+title, function(data){
+
+            $.getJSON( '/api/video/title/'+title, function(data){
+                var seed =  Math.floor(Math.random()*1000);
+                data.seed = seed;
                 viewUpdate.updateViewField('videoDetail', data );
                 viewUpdate.updateViewField('videoShow', true );
-                videojs("vid"+title, {}, function(){
+                videojs("vid"+title+seed, {}, function(){
 
                 });
             });
@@ -25,7 +28,7 @@ define([
        deleteVideo      : function(title){
            $.ajax({
                type     : 'DELETE',
-               url      : '/video/title/'+title,
+               url      : '/api/video/title/'+title,
                success  : function(data){
 
                }
@@ -35,17 +38,17 @@ define([
 
        },
        getCategory      : function(category){
-            $.getJSON( '/video/category/'+category, function(){
+            $.getJSON( '/api/video/category/'+category, function(){
 
             });
        },
        getCategoryList  : function(){
-            $.getJSON('/video/category', function(){
+            $.getJSON('/api/video/category', function(){
 
             })
        },
        getVideoMeta     : function(title){
-            $.getJSON( '/play/title/'+title, function(){
+            $.getJSON( '/api/play/title/'+title, function(){
 
             } );
        }

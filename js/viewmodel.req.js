@@ -7,13 +7,16 @@ define(['knockout'], function(ko) {
                 videoList       : ko.observableArray([]),
                 categoryList    : ko.observableArray([]),
                 videoShow       : ko.observable(false),
+
                 videoDetail     : ko.observable({
                     path : "",
                     title : "",
                     duration:"",
                     category : "",
-                    description : ""
-                })
+                    description : "",
+                    seed : ko.observable("")
+                }),
+
             };
             ko.applyBindings( viewModel );
         },
