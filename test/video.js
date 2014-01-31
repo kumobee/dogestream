@@ -43,6 +43,10 @@ describe('GET /video and friends ::  ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text)[0];
 
                     for(var key in video) {
@@ -67,6 +71,10 @@ describe('GET /video and friends ::  ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text);
 
                     assert.equal(JSON.stringify(categories), JSON.stringify(result));
@@ -83,6 +91,10 @@ describe('GET /video and friends ::  ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text)[0];
 
                     assert.equal(result._id, id);
@@ -100,6 +112,10 @@ describe('GET /video and friends ::  ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text);
 
                     assert.ok(result);
@@ -154,6 +170,10 @@ describe('PUT /video :: ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text);
 
                     assert.ok(result);
@@ -241,6 +261,10 @@ describe('GET /play :: ', function() {
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
+                    if(err) {
+                        return done(err);
+                    }
+
                     var result = JSON.parse(res.text);
 
                     assert.ok(result);

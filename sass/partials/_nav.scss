@@ -1,6 +1,5 @@
-nav{
+nav {
   background-color:#2980b9;
-  padding-right:200px;
   text-align: center;
   display:block;
   border: 0;
@@ -8,7 +7,8 @@ nav{
   vertical-align: baseline;
   width:100%;
   height:40px;
-  #title{
+
+  #title {
     float:left;
     color:$textColor;
     font-family: $ubuntuFont, arial, sans-serif;
@@ -17,7 +17,8 @@ nav{
     padding-left:20px;
 
   }
-  .menuItem{
+
+  .menuItem {
     @include span-columns(1);
     cursor:pointer;
     color:$textColor;
@@ -29,9 +30,11 @@ nav{
     margin:0px 5px 0px 5px;
     float:right;
     height:inherit;
+
     &:last-child{
       margin-right:5px;
     }
+
     &:hover{
       background-color: #34495e;
       -webkit-transition: background-color 500ms linear;
