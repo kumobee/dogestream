@@ -15,6 +15,32 @@
     <script type="text/javascript" src="http://use.typekit.net/com3nni.js"></script>
     <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
+    <script type="text/html" id="videolistTemplate">
+        <div class='sidebarVid'>
+            <a data-bind="attr:{href:'/video/'+title }" >
+                <img src="http://www.valuesbasedleader.com/wp-content/themes/VBL/images/videoPlaceholder.jpg" width="125"/>
+                <h3 data-bind="text: title"> </h3>
+                <span class="duration" data-bind="text: duration"></span>
+                <span class="category" data-bind="text: category"></span>
+                <span class="desc" data-bind="text: description"></span>
+
+            </a>
+        </div>
+    </script>
+
+    <script type="text/html" id="videoSingleTemplate">
+        <h3 data-bind="text: title"></h3>
+        <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="none" width="715" height="264"
+               data-setup="{}" poster="http://www.valuesbasedleader.com/wp-content/themes/VBL/images/videoPlaceholder.jpg">
+            <source data-bind="attr:{ src : path }" type='video/m4v' />
+            <track kind="captions" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+            <track kind="subtitles" src="demo.captions.vtt" srclang="en" label="English"></track><!-- Tracks need an ending tag thanks to IE9 -->
+        </video>
+        <span data-bind="text: category"></span>
+        <span data-bind="text: duration"></span>
+        <span data-bind="text: description"></span>
+    </script>
+
     <body>
         <nav class="">
             <div id="title" class="ttk-ubuntu-mono">
@@ -26,12 +52,13 @@
         </nav>
 
         <div id="content">
-            <div id="sidebar">
+            <div id="sidebar" data-bind="template:{ name : 'videolistTemplate', foreach:videoList, as: 'video' } ">
 
             </div>
-            <div id="primaryArea">
-                <a href="/testing">click me</a>
+            <div id="primaryArea" data-bind="visible: videoShow, template:{name: 'videoSingleTemplate', data: videoDetail }">
+
             </div>
+
         </div>
 
         <footer>
