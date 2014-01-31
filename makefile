@@ -15,7 +15,7 @@ install:
 	@bundle install
 
 test:
-	@$(MOCHA) --reporter spec test/*.js
+	@$(MOCHA) --reporter spec test/video.js
 
 docs:
 	@$(DOC) $(JS_SOURCE)

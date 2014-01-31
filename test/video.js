@@ -11,6 +11,7 @@ describe('GET /video and friends ::  ', function() {
         description: 'Teach me how to doge, teach me teach me how to doge...',
         path: 'some/path/to/file',
         duration: '00:03:01',
+        type: 'video/x-m4v',
         category: 'doge'
 
     };
@@ -20,6 +21,7 @@ describe('GET /video and friends ::  ', function() {
         description: 'You won\'t learn how to doge here...',
         path: 'some/stupid/path',
         duration: '00:00:00',
+        type: 'video/x-m4v',
         category: 'notDoge'
     };
 
@@ -31,7 +33,7 @@ describe('GET /video and friends ::  ', function() {
                 id = docs[0]._id;
                 done();
             });
-        })
+        });
     });
 
     describe('when requesting resource /video', function() {
@@ -42,7 +44,7 @@ describe('GET /video and friends ::  ', function() {
                 .expect(200)
                 .end(function(err, res) {
                     var result = JSON.parse(res.text)[0];
-                    assert.equal(result._id, id);
+
                     for(var key in video) {
                         if(video.hasOwnProperty(key)) {
                             assert.equal(result[key], video[key]);
@@ -102,10 +104,16 @@ describe('PUT /video :: ', function() {
     };
 
     describe('when putting a new resource /video/title/:title', function() {
-        it('should insert the the video meta-data into the database and copy the video to the filesystem', function(done) {
+        it('should insert the the video meta-data into the database', function(done) {
+
+            var title = 'New-Doge-Hotness';
+            var getTitle = '/video/title/' + title;
+            var videoName = 'sampleContent/TOC_053013_398.m4v';
+            var fileName = title + '.m4v';
+
 
             request(app)
-                .get('/video/title/New-Doge-Hotness')
+                .get(getTitle)
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -115,7 +123,7 @@ describe('PUT /video :: ', function() {
                 });
 
             request(app)
-                .put('/video/title/New-Doge-Hotness')
+                .put(getTitle)
                 .send(putVideo)
                 .expect('Content-Type', /json/)
                 .expect(201)
@@ -124,7 +132,7 @@ describe('PUT /video :: ', function() {
                 });
 
             request(app)
-                .get('/video/title/New-Doge-Hotness')
+                .get(getTitle)
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -134,6 +142,42 @@ describe('PUT /video :: ', function() {
                     assert.equal(result.title, putVideo.title);
 
                     done();
+                });
+        });
+    });
+});
+
+describe('PATCH /video :: ', function() {
+    var putVideo;
+
+    putVideo = {
+        title: 'New-Doge-Hotness',
+        description: 'All about dat doge!',
+        duration: '00:01:00',
+        type: 'video/x-m4v',
+        category: 'dansudansudansu'
+    };
+
+    describe('when patching a current resource /video/title/:title', function() {
+        it('should copy the file blob to the content/ dir', function(done) {
+            var title = 'New-Doge-Hotness';
+            var getTitle = '/video/title/' + title;
+            var videoName = 'sampleContent/TOC_053013_398.m4v';
+            var fileName = title + '.m4v';
+
+            request(app)
+                .patch(getTitle)
+                .type('form')
+                .attach('file', videoName, fileName)
+                .expect('Content-Type', /json/)
+                .expect(201)
+                .end(function(err, res) {
+
+                    if(err) {
+                        return done(err);
+                    }
+
+                    return done();
                 });
         });
     });
