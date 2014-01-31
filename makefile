@@ -31,3 +31,6 @@ css:
 
 mock-data:
 	@NODE_ENV=test node test/mockData.js
+
+mock-prod:
+	@NODE_ENV=production node prodData.js
