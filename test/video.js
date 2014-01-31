@@ -39,7 +39,7 @@ describe('GET /video and friends ::  ', function() {
     describe('when requesting resource /video', function() {
         it('should return an array of videos', function(done) {
             request(app)
-                .get('/video')
+                .get('/api/video')
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -67,7 +67,7 @@ describe('GET /video and friends ::  ', function() {
 
             var categories = ['doge', 'notDoge'];
             request(app)
-                .get('/video/category')
+                .get('/api/video/category')
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -87,7 +87,7 @@ describe('GET /video and friends ::  ', function() {
     describe('when requesting resource /video/category/:category', function() {
         it('should return an array of videos that match that category', function(done) {
             request(app)
-                .get('/video/category/doge')
+                .get('/api/video/category/doge')
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -108,7 +108,7 @@ describe('GET /video and friends ::  ', function() {
     describe('when requesting resource /video/title/:title', function() {
         it('should return a single video that matches title', function(done) {
             request(app)
-                .get('/video/title/Teach-Me-How-To-Doge')
+                .get('/api/video/title/Teach-Me-How-To-Doge')
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
@@ -141,7 +141,7 @@ describe('PUT /video :: ', function() {
         it('should insert the the video meta-data into the database', function(done) {
 
             var title = 'New-Doge-Hotness';
-            var getTitle = '/video/title/' + title;
+            var getTitle = '/api/video/title/' + title;
             var videoName = 'sampleContent/TOC_053013_398.m4v';
             var fileName = title + '.m4v';
 
@@ -199,7 +199,7 @@ describe('PATCH /video :: ', function() {
     describe('when patching a current resource /video/title/:title', function() {
         it('should copy the file blob to the content/ dir', function(done) {
             var title = 'New-Doge-Hotness';
-            var getTitle = '/video/title/' + title;
+            var getTitle = '/api/video/title/' + title;
             var videoName = 'sampleContent/TOC_053013_398.m4v';
             var fileName = title + '.m4v';
 
@@ -257,7 +257,7 @@ describe('GET /play :: ', function() {
     describe('when getting a video using the /play route', function() {
         it('should return video meta-data', function(done) {
             request(app)
-                .get('/play/title/Teach-Me-How-To-Doge')
+                .get('/api/play/title/Teach-Me-How-To-Doge')
                 .expect('Content-Type', /json/)
                 .expect(200)
                 .end(function(err, res) {
