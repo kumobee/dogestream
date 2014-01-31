@@ -17,7 +17,7 @@ describe('GET /video and friends ::  ', function() {
     };
 
     notDogeVideo = {
-        title: 'Something That Isn\'t Doge Therefore Less Important',
+        title: 'Something-That-Isnt-Doge-Therefore-Less-Important',
         description: 'You won\'t learn how to doge here...',
         path: 'some/stupid/path',
         duration: '00:00:00',
@@ -60,6 +60,24 @@ describe('GET /video and friends ::  ', function() {
 
     describe('when requesting resource /video/category', function() {
         it('should return an array of videos that match category', function(done) {
+
+            var categories = ['doge', 'notDoge'];
+            request(app)
+                .get('/video/category')
+                .expect('Content-Type', /json/)
+                .expect(200)
+                .end(function(err, res) {
+                    var result = JSON.parse(res.text);
+
+                    assert.equal(JSON.stringify(categories), JSON.stringify(result));
+
+                    done();
+                });
+        });
+    });
+
+    describe('when requesting resource /video/category/:category', function() {
+        it('should return an array of videos that match that category', function(done) {
             request(app)
                 .get('/video/category/doge')
                 .expect('Content-Type', /json/)
