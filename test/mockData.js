@@ -9,6 +9,7 @@ var video = {
     description: 'Teach me how to doge, teach me teach me how to doge...',
     path: 'some/path/to/file',
     duration: '00:03:01',
+    type: 'video/x-m4v',
     category: 'doge'
 
 };
@@ -18,6 +19,7 @@ var notDogeVideo = {
     description: 'You won\'t learn how to doge here...',
     path: 'some/stupid/path',
     duration: '00:00:00',
+    type: 'video/x-m4v',
     category: 'notDoge'
 };
 
@@ -26,6 +28,7 @@ var prancingShiba = {
     description: 'Such spoof of many beers and good friends (minus wizard doge).',
     path: 'path/to/prancing/shiba',
     duration: '99:99:99',
+    type: 'video/x-m4v',
     category: 'movieSpoof'
 };
 
@@ -34,6 +37,7 @@ var poopingShiba = {
     description: 'You don\'t want to know.',
     path: 'pls/that/does/not/go/there',
     duration: '00:00:07',
+    type: 'video/x-m4v',
     category: 'shock'
 };
 
@@ -42,6 +46,7 @@ var fuckThisShiba = {
     description: 'Yes, this particular Shiba, and this particular Shiba only.',
     path: 'what/is/this/i/dont/even',
     duration: '999:00:00',
+    type: 'video/x-m4v',
     category: 'fuckThis'
 };
 
