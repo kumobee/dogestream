@@ -3,4 +3,5 @@ node_modules
 *.iml
 .sass-cache
 css/*.css
+sampleContent
 

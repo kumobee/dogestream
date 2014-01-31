@@ -1,7 +1,7 @@
 ![alt text](http://i.imgur.com/6AWcQQC.png "such venice doge") dogestream [![Build Status](https://travis-ci.org/WowSuchDogestream/dogestream.png?branch=master)](https://travis-ci.org/WowSuchDogestream/dogestream)
 ===========
 
-That's no doge! [Actually yes it is!](http://en.wikipedia.org/wiki/Doge_of_Venice).
+That's no doge! [Actually yes it is!](http://en.wikipedia.org/wiki/Doge_of_Venice)
 
 **dogestream is a hackday project at CBS Interactive that aims to be a streaming media center built entirely with web technologies.**
 

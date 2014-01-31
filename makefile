@@ -28,3 +28,6 @@ app:
 
 css:
 	@$(SASS) --update sass:css
+
+mock-data:
+	@NODE_ENV=test node test/mockData.js
